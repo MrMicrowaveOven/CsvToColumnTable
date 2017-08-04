@@ -8,7 +8,7 @@
   <body>
     <textarea id="csvInput" name="name" rows="8" cols="80">A,B,C,D,E,F,G</textarea>
     <select id="numColumns" class="" name=""></select>
-    <button type="button" name="button" onclick="genTable()">Generate Table!</button>
+    <button id="genTableButton" type="button" name="button" onclick="genTable()">Generate Table!</button>
     <table>
 
     </table>
@@ -21,6 +21,17 @@
             $("#numColumns").append("<option value=" + i + ">" + i + " Columns</option>")
           }
         }
+
+        $("#csvInput").on("input", function(e) {
+          var textInInput = e.target.value;
+          if (textInInput == "") {
+            $("#genTableButton").prop("disabled", true)
+          } else if (textInInput.split(",").length > 100) {
+            $("#genTableButton").prop("disabled", true)
+          } else {
+            $("#genTableButton").prop("disabled", false)
+          }
+        })
       })
       function genTable() {
         var csv = $("#csvInput").val();
