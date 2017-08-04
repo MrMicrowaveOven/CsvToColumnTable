@@ -12,7 +12,9 @@
     <table>
 
     </table>
+    <div id="errorMessage" class="error">
 
+    </div>
     <div id="links">
       Written by Benjamin Zagorski.
       <br>
@@ -29,6 +31,7 @@
         }
 
         $("#csvInput").on("input", function(e) {
+          $("#errorMessage").html("")
           var textInInput = e.target.value;
           if (textInInput == "") {
             $("#genTableButton").prop("disabled", true)
@@ -61,6 +64,10 @@
       }
       function showTable(tableSpecs) {
         $("table").html("")
+        if (tableSpecs.length == 0) {
+          $("#errorMessage").html("Input error")
+          return
+        }
         $("table").append("<tr id='columnHeader'></tr>")
         for (var i = 1; i <= tableSpecs[0].length; i++) {
           $("#columnHeader").append("<th>" + i + "</th>")
