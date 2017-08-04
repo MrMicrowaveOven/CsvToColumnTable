@@ -10,54 +10,18 @@
   <body>
     <div class="jumbotron text-center">
       <h1>Table Generator</h1>
-      <textarea id="csvInput" name="name" rows="8" cols="80">A,B,C,D,E,F,G</textarea>
-      <select id="numColumns" class="" name=""></select>
-      <button id="genTableButton" class="btn btn-primary btn-lg" type="button" name="button" onclick="genTable()">Generate Table!</button>
+      <div class="inputs">
+        <textarea id="csvInput" name="name" rows="8" cols="80">A,B,C,D,E,F,G</textarea>
+        <select id="numColumns" class="" name=""></select>
+        <button id="genTableButton" class="btn btn-primary btn-lg" type="button" name="button" onclick="genTable()">Generate Table!</button>
+      </div>
     </div>
 
     <div class="" id="table-container">
       <table class = "table table-bordered table-responsive">
-        <!-- <thead>
-          <tr id="columnHeader">
-            <th class="rowLabel">#</th>
-            <th class="columnLabel">A</th>
-            <th class="columnLabel">B</th>
-            <th class="columnLabel">C</th>
-          </tr>
-        </thead> -->
-
-        <!-- <tbody id="rows"> -->
-          <!-- <tr>
-            <th class="rowLabel" scope="row">1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <th class="rowLabel" scope="row">2</th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <th class="rowLabel" scope="row">3</th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr> -->
-        <!-- </tbody> -->
-
       </table>
     </div>
 
-
-
-
-    <!-- <table>
-
-    </table> -->
     <div id="errorMessage" class="error">
 
     </div>

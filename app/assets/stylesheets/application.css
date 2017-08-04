@@ -35,3 +35,22 @@ th, td {
 .table td, .table th {
    text-align: center;
 }
+
+#genTableButton {
+  width: 250px;
+}
+
+#numColumns {
+  width: 150px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+#csvInput, #numColumns, #genTableButton {
+  margin: 10px;
+}
