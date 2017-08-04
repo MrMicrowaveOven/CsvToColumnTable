@@ -42,6 +42,10 @@
         })
       }
       function showTable(tableSpecs) {
+        $("table").append("<tr id='columnHeader'></tr>")
+        for (var i = 1; i <= tableSpecs[0].length; i++) {
+          $("#columnHeader").append("<th>" + i + "</th>")
+        }
         tableSpecs.forEach(function(row, row_index) {
           $("table").append("<tr id=row" + row_index + "></tr>")
           row.forEach(function(cell) {
