@@ -39,6 +39,7 @@
           }
         })
       })
+
       function genTable() {
         var csv = $("#csvInput").val();
         var numColumns = $("#numColumns").val();
@@ -59,6 +60,7 @@
         })
       }
       function showTable(tableSpecs) {
+        $("table").html("")
         $("table").append("<tr id='columnHeader'></tr>")
         for (var i = 1; i <= tableSpecs[0].length; i++) {
           $("#columnHeader").append("<th>" + i + "</th>")
