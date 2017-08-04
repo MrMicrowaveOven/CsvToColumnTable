@@ -5,7 +5,7 @@ class TablesController < ApplicationController
   end
 
   def create
-    table = Table.make_table(params[:csv], params[:numColumns])
+    table = Table.make_table(params[:csv], params[:numColumns].to_i)
     render json: table
   end
 end
