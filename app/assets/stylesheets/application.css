@@ -26,3 +26,12 @@ th, td {
 .error {
   color: red;
 }
+
+#table-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.table td, .table th {
+   text-align: center;
+}

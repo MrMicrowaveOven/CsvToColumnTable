@@ -3,15 +3,61 @@
   <head>
     <meta charset="utf-8">
     <title>CSV to Table!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <textarea id="csvInput" name="name" rows="8" cols="80">A,B,C,D,E,F,G</textarea>
-    <select id="numColumns" class="" name=""></select>
-    <button id="genTableButton" type="button" name="button" onclick="genTable()">Generate Table!</button>
-    <table>
+    <div class="jumbotron text-center">
+      <h1>Table Generator</h1>
+      <textarea id="csvInput" name="name" rows="8" cols="80">A,B,C,D,E,F,G</textarea>
+      <select id="numColumns" class="" name=""></select>
+      <button id="genTableButton" class="btn btn-primary btn-lg" type="button" name="button" onclick="genTable()">Generate Table!</button>
+    </div>
 
-    </table>
+    <div class="" id="table-container">
+      <table class = "table table-bordered table-responsive">
+        <!-- <thead>
+          <tr id="columnHeader">
+            <th class="rowLabel">#</th>
+            <th class="columnLabel">A</th>
+            <th class="columnLabel">B</th>
+            <th class="columnLabel">C</th>
+          </tr>
+        </thead> -->
+
+        <!-- <tbody id="rows"> -->
+          <!-- <tr>
+            <th class="rowLabel" scope="row">1</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <th class="rowLabel" scope="row">2</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <th class="rowLabel" scope="row">3</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr> -->
+        <!-- </tbody> -->
+
+      </table>
+    </div>
+
+
+
+
+    <!-- <table>
+
+    </table> -->
     <div id="errorMessage" class="error">
 
     </div>
@@ -68,12 +114,12 @@
           $("#errorMessage").html("Input error")
           return
         }
-        $("table").append("<tr id='columnHeader'></tr>")
+        $("table").append("<thead><tr class='thead' id='columnHeader'></tr></thead>")
         for (var i = 1; i <= tableSpecs[0].length; i++) {
           $("#columnHeader").append("<th>" + i + "</th>")
         }
         tableSpecs.forEach(function(row, row_index) {
-          $("table").append("<tr id=row" + row_index + "></tr>")
+          $("table").append("<tr scope='row' id=row" + row_index + "></tr>")
           row.forEach(function(cell) {
             if (cell) {
               $("#row" + row_index).append("<td>" + cell + "</td>")
