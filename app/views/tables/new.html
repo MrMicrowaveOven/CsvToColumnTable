@@ -6,9 +6,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <textarea id="csvInput" name="name" rows="8" cols="80"></textarea>
+    <textarea id="csvInput" name="name" rows="8" cols="80">1,2,3</textarea>
     <select id="numColumns" class="" name=""></select>
     <button type="button" name="button" onclick="genTable()">Generate Table!</button>
+    <table>
+
+    </table>
     <script type="text/javascript">
       $(function() {
         for (var i = 2; i <= 10; i++) {
@@ -30,8 +33,17 @@
           },
           success: function(res) {
             console.log("Success y'all! ");
-            console.log(res);
+            showTable(res)
           }
+        })
+      }
+      function showTable(tableSpecs) {
+        console.log(tableSpecs);
+        tableSpecs.forEach(function(row, row_index) {
+          $("table").append("<tr id=row" + row_index + "></tr>")
+          row.forEach(function(cell) {
+            $("#row" + row_index).append("<td>" + cell + "</td>")
+          })
         })
       }
     </script>
