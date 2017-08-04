@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSV to Table!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <textarea id="csvInput" name="name" rows="8" cols="80"></textarea>
+    <select id="numColumns" class="" name=""></select>
+    <button type="button" name="button" onclick="genTable()">Generate Table!</button>
+    <script type="text/javascript">
+      $(function() {
+        for (var i = 2; i <= 10; i++) {
+          $("#numColumns").append("<option value=" + i + ">" + i + " Columns</option>")
+        }
+      })
+      function genTable() {
+        var csv = $("#csvInput").val();
+        var numColumns = $("#numColumns").val();
+        $.post({
+          data:{
+            csv: csv,
+            numColumns: numColumns
+          },
+          url: "/tables",
+          datatype: "json",
+          error: function() {
+            console.log("Error");
+          },
+          success: function(res) {
+            console.log("Success y'all! ");
+            console.log(res);
+          }
+        })
+      }
+    </script>
+  </body>
+</html>
